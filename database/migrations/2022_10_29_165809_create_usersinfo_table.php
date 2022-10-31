@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('district');
             $table->integer('agent');
             $table->float('latitude');
-            $table->integer('longitude');
+            $table->float('longitude');
             $table->string('nombor_permohonan');
         });
     }

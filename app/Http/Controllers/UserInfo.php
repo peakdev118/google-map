@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreUserInfo;
+use App\Models\District;
 
 class UserInfo extends Controller
 {
@@ -14,9 +17,8 @@ class UserInfo extends Controller
     public function index()
     {
         //
-        return view('userinfo.getUserInfo');
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -25,6 +27,10 @@ class UserInfo extends Controller
     public function create()
     {
         //
+        $distircts = District::all();
+        return view('userinfo.createUserInfo',[
+            'districts'=> $distircts,
+        ]);
     }
 
     /**
@@ -33,9 +39,11 @@ class UserInfo extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserInfo $request)
     {
         //
+        $user = Auth::user();
+        return view('userInfo.storeUserInfo');
     }
 
     /**

@@ -14,10 +14,20 @@ use App\Http\Controllers\UserInfo;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::prefix('client')->group(function () {
-    Route::get('/getuserinfo', [UserInfo::class, 'index']);
-});
 
 Route::get('/', function () {
     return view('welcome');
 });
+Route::prefix('client')->middleware(['auth', 'verified'])->group(function(){
+    // Route::get('/getuserinfo', function(){
+    //     return view('dashboard');
+    // })->name('dashboard');
+    Route::get('/createuserinfo', [UserInfo::class, 'create'])->name('createuserinfo');
+    Route::post('/storeuserinfo', [UserInfo::class, 'store'])->name('storeuserinfo');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+require __DIR__.'/auth.php';
