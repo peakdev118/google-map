@@ -34,7 +34,8 @@ class StoreUserInfo extends FormRequest
             'district' => ['required'],
             'latitude' => ['required'],
             'longitude' => ['required'],
-            'agent' => ['required'],
+            'agent' => ['required',],
+            'application_number' => ['required'],
         ];
     }
 
@@ -55,6 +56,7 @@ class StoreUserInfo extends FormRequest
             'district' => 'Please select discrict',
             'agent' => 'Agent must be number from 0001 to 9999',
             'map' => 'Please select map',
+            'application_nubmer' => 'Please inseart correct number(agent number - application number up to 999,999 ex:0005-000001)',
         ];
     }
 }

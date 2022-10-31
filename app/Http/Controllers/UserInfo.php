@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreUserInfo;
 use App\Models\District;
+use App\Models\Usersinfo;
 
 class UserInfo extends Controller
 {
@@ -43,6 +44,20 @@ class UserInfo extends Controller
     {
         //
         $user = Auth::user();
+        $user->userinfo()->create([
+            'name' => $request->name,
+            'nric' => $request->nric,
+            'contact' => $request->contact,
+            'address1' => $request->address1,
+            'address2' => $request->address2,
+            'postcode' => $request->postcode,
+            'district' => $request->district,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
+            'agent' => $request->agent,
+            'application_number' => $request->application_number,
+        ]);
+        
         return view('userInfo.storeUserInfo');
     }
 

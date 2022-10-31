@@ -63,7 +63,7 @@
                         <div class="mt-4">
                             <x-input-label for="postcode" :value="__('Postcode')" />
 
-                            <x-text-input id="postcode" class="block mt-1 w-full" type="text" name="postcode"
+                            <x-text-input id="postcode" class="block mt-1 w-full" type="number" name="postcode"
                                 :value="old('postcode')" />
 
                             <x-input-error :messages="$errors->get('postcode')" class="mt-2" />
@@ -85,9 +85,9 @@
                         <div class="mt-4">
                             <x-input-label for="location" :value="__('Pin Location')" />
 
-                            <x-text-input id="latitude" class="mt-1 w-full" type="text" name="latitude"
+                            <x-text-input id="latitude" class="mt-1 w-full" type="number" name="latitude"
                                 :value="old('latitude')" hidden />
-                            <x-text-input id="longitude" class="mt-1 w-full" type="text" name="longitude"
+                            <x-text-input id="longitude" class="mt-1 w-full" type="number" name="longitude"
                                 :value="old('longitude')" hidden />
 
                             <div id="map" class="mt-1 rounded-md border-gray-400"></div>
@@ -97,10 +97,18 @@
                         <div class="mt-4">
                             <x-input-label for="agent" :value="__('Agent')" />
 
-                            <x-text-input id="agent" class="block mt-1 w-full" type="text" name="agent"
+                            <x-text-input id="agent" class="block mt-1 w-full" type="number" name="agent"
                                 :value="old('agent')" />
 
                             <x-input-error :messages="$errors->get('agent')" class="mt-2" />
+                        </div>
+                        <div class="mt-4">
+                            <x-input-label for="application_number" :value="__('Application Number')" />
+
+                            <x-text-input id="application_number" class="block mt-1 w-full" type="text" name="application_number"
+                                :value="old('application_number')" />
+
+                            <x-input-error :messages="$errors->get('application_number')" class="mt-2" />
                         </div>
                         <div class="mt-4">
                             <button type="submit"

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('usersinfo', function (Blueprint $table) {
             //
             $table->id();
-            $table->string('userid');
+            $table->string('user_id');
             $table->string('nric');
             $table->string('contact');
             $table->string('address1');
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->integer('agent');
             $table->float('latitude');
             $table->float('longitude');
-            $table->string('nombor_permohonan');
+            $table->string('application_number');
         });
     }
 
